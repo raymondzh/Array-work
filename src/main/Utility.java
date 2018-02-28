@@ -24,6 +24,26 @@ public class Utility {
 		}
 	}
 	
+	public static int checkError(int min, Scanner in){
+		int a;
+		while(true){
+			try{
+				 a = in.nextInt();
+			}
+			catch(InputMismatchException e){
+				in.next();
+				a = min-1;
+			}
+			if(a >= min){
+				return a;
+			}
+			else{
+				System.out.println("That is not a valid input");
+				System.out.println("Please try again");
+			}
+		}
+	}
+	
 	public static double checkError(double min, double max, Scanner in){
 		double a;
 		while(true){ 

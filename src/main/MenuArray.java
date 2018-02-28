@@ -13,8 +13,10 @@ public class MenuArray {
 		int test;
 		int max = 100;
 		boolean ascending = true;
+		int instances;
 		while(true){
 			test = 0;
+			instances = 0;
 			System.out.println("0. Exit the program.");
 			System.out.println("1. Populate the array randomly.");
 			System.out.println("2. Populate the array sequentially from 1 to 100.");
@@ -25,6 +27,9 @@ public class MenuArray {
 			System.out.println("7. Shuffle until ascending.");
 			System.out.println("8. Find the lowest value.");
 			System.out.println("9. Find the highest value");
+			System.out.println("10. Find number of occurences of a number");
+			System.out.println("11. Replace all instances of one number with another");
+			System.out.println("12. Find ten consecutive integers with the highest sum");
 			menuSelection = Utility.checkError(0, 9, in);
 			
 			if(menuSelection == 0){//exit
@@ -122,6 +127,38 @@ public class MenuArray {
 					}
 				}
 				System.out.println("The highest value is: " + test);
+			}
+			
+			else if(menuSelection == 10){
+				System.out.println("What integer would you like to find");
+				test = Utility.checkError(0, in);
+				for(int i = 0; i < 100; i++){
+					if(test == array[i]){
+						instances ++;
+					}
+				}
+				System.out.println("That number " + test + " appears " + instances + " times.");
+			}
+			
+			else if(menuSelection == 11){
+				System.out.println("Please enter the number you'd like to replace, then the number you'd like to replace it with");
+				test = Utility.checkError(0, in);
+				instances = Utility.checkError(0, in);
+				for(int i = 0; i < 100; i++){
+					if(array[i] == test){
+						array[i] = instances;
+					}
+				}
+				System.out.println("Done.");
+			}
+			
+			else if(menuSelection == 12){
+				test = array[0] + array[1] + array[2] + array[3] + array[4] + array[5] + array[6] + array[7] + array[8] + array[9];
+				for(int i = 0; i < 90; i++){
+					if(test < array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9]){
+						test = array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9];
+					}
+				}
 			}
 		}
 
