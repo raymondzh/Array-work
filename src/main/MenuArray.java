@@ -30,7 +30,7 @@ public class MenuArray {
 			System.out.println("10. Find number of occurences of a number");
 			System.out.println("11. Replace all instances of one number with another");
 			System.out.println("12. Find ten consecutive integers with the highest sum");
-			menuSelection = Utility.checkError(0, 9, in);
+			menuSelection = Utility.checkError(0, 12, in);
 			
 			if(menuSelection == 0){//exit
 				System.out.println("Exiting");
@@ -159,6 +159,7 @@ public class MenuArray {
 						test = array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9];
 					}
 				}
+				System.out.println("The greatest sum of ten consecutive numbers is: " + test);
 			}
 		}
 
