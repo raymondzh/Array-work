@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class MenuArray {
@@ -10,12 +8,9 @@ public class MenuArray {
 		int[] array = new int[100];
 		int menuSelection;
 		Scanner in = new Scanner(System.in);
-		int test;
 		int max = 100;
-		boolean ascending = true;
 		int instances;
 		while(true){
-			test = 0;
 			instances = 0;
 			System.out.println("0. Exit the program.");
 			System.out.println("1. Populate the array randomly.");
@@ -38,7 +33,7 @@ public class MenuArray {
 			}
 			
 			else if(menuSelection == 1){//populate randomly
-				CustomArrayMethods.populateRandomly(array, 100);
+				CustomArrayMethods.populateRandomly(array, max);
 				System.out.println("Done");
 			}
 			
@@ -58,93 +53,38 @@ public class MenuArray {
 			}
 			
 			else if(menuSelection == 5){//Look for place
-				System.out.println("What number are you looking for?");
-				test = Utility.checkError(0, 2147483647, in);
-				for(int i = 0; i < 100; i++){
-					if(array[i] == test){
-						System.out.println(i+1);
-						break;
-					}
-					else if(i == 99){
-						System.out.println("-1");
-					}
-				}
+				CustomArrayMethods.lookForNumber(array, in);
 			}
 			
 			else if(menuSelection == 6){//Check for ascending
-				for(int i = 0; i < (array.length-1); i++){
-					if(array[i] < array[i+1])
-					{}
-					else{
-						System.out.println("The list is not in ascending order");
-						ascending = false;
-						break;
-					}
-				}
-				if(ascending){
-					System.out.println("The list is in ascending order");
-				}
-				ascending = true;
+				System.out.println((CustomArrayMethods.checkForAscending(array)) ? "This list is in ascending order" : "This list is not in ascending order");
 			}
 			
 			else if(menuSelection == 7){//shuffle until ascending
-				for(int i = 0; i < 10000; i++){
-					//TODO shuffle until in ascending
-				}
+				CustomArrayMethods.shuffleUntilAscending(array);
 				System.out.println("Done");
 			}
 			
 			else if(menuSelection == 8){ //lowest value
-				test = array[0];
-				for(int i = 0; i < 100; i++){
-					if(array[i] < test){
-						test = array[i];
-					}
-				}
-				System.out.println("The lowest value is: " + test);
+				System.out.println("The lowest value is: " + CustomArrayMethods.findLowestValue(array));
 			}
 			
 			else if(menuSelection ==9){//highest value
-				test = array[0];
-				for(int i = 0; i < 100; i++){
-					if(array[i] > test){
-						test = array[i];
-					}
-				}
-				System.out.println("The highest value is: " + test);
+				System.out.println("The greatest value is: " + CustomArrayMethods.findHighestValue(array));
 			}
 			
 			else if(menuSelection == 10){
-				System.out.println("What integer would you like to find");
-				test = Utility.checkError(0, in);
-				for(int i = 0; i < 100; i++){
-					if(test == array[i]){
-						instances ++;
-					}
-				}
-				System.out.println("That number " + test + " appears " + instances + " times.");
+				instances = CustomArrayMethods.findNumberInstances(array, in);
+				System.out.println("That number appears " + instances + " times.");
 			}
 			
 			else if(menuSelection == 11){
-				System.out.println("Please enter the number you'd like to replace, then the number you'd like to replace it with");
-				test = Utility.checkError(0, in);
-				instances = Utility.checkError(0, in);
-				for(int i = 0; i < 100; i++){
-					if(array[i] == test){
-						array[i] = instances;
-					}
-				}
+				CustomArrayMethods.findNumberInstances(array, in);
 				System.out.println("Done.");
 			}
 			
 			else if(menuSelection == 12){
-				test = array[0] + array[1] + array[2] + array[3] + array[4] + array[5] + array[6] + array[7] + array[8] + array[9];
-				for(int i = 0; i < 90; i++){
-					if(test < array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9]){
-						test = array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9];
-					}
-				}
-				System.out.println("The greatest sum of ten consecutive numbers is: " + test);
+				System.out.println("The greatest sum of ten consecutive numbers is: " + CustomArrayMethods.findGreatestTenSum(array));
 			}
 		}
 
