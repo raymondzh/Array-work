@@ -38,37 +38,22 @@ public class MenuArray {
 			}
 			
 			else if(menuSelection == 1){//populate randomly
-				for(int i = 0; i < 100;i++){
-					array[i] = Utility.random(0, max);
-				}
+				CustomArrayMethods.populateRandomly(array, 100);
 				System.out.println("Done");
 			}
 			
 			else if(menuSelection == 2){//populate in order
-				for(int i = 0; i < 100; i++){
-					array[i] = i+1;
-				}
+				CustomArrayMethods.populateAscending(array);
 				System.out.println("Done");
 			}
 			
 			else if(menuSelection == 3){//Print
-				for(int i = 0; i < 10; i++){
-					for(int j = 0; j < 10; j++){
-						if(String.valueOf(array[10*i+j]).length() == 3)
-							System.out.print(array[10*i+j] + " ");
-						else if (String.valueOf(array[10*i+j]).length() == 2)
-							System.out.print(" " + array[10*i+j] + " ");
-						else if (String.valueOf(array[10*i+j]).length() == 1)
-							System.out.print("  " + array[10*i+j] + " ");
-					}
-					System.out.println("");
-				}
+				CustomArrayMethods.printArray(array);
 				System.out.println("Done");
 			}
 			
 			else if(menuSelection == 4){//Shuffle
-				//TODO Shuffle array
-				Collections.shuffle(Arrays.asList(array));
+				CustomArrayMethods.shuffle(array);
 				System.out.println("Done");
 			}
 			
