@@ -75,7 +75,7 @@ public class MenuArray {
 			
 			else if(menuSelection == 10){
 				instances = CustomArrayMethods.findNumberInstances(array, in);
-				System.out.println("That number appears " + instances + " times.");
+				System.out.println("That number appears " + instances + " time(s).");
 			}
 			
 			else if(menuSelection == 11){

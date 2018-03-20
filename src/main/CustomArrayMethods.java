@@ -8,7 +8,7 @@ public class CustomArrayMethods
 	
 	public static void populateRandomly(int[] array, int max)
 	{
-		for(int i = 0; i < 100;i++)
+		for(int i = 0; i < 100; i++)
 		{
 			array[i] = Utility.random(0, max);
 		}
