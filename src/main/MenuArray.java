@@ -73,17 +73,17 @@ public class MenuArray {
 				System.out.println("The greatest value is: " + CustomArrayMethods.findHighestValue(array));
 			}
 			
-			else if(menuSelection == 10){
+			else if(menuSelection == 10){//find instances of a number
 				instances = CustomArrayMethods.findNumberInstances(array, in);
 				System.out.println("That number appears " + instances + " time(s).");
 			}
 			
-			else if(menuSelection == 11){
-				CustomArrayMethods.findNumberInstances(array, in);
+			else if(menuSelection == 11){//replace number with another
+				CustomArrayMethods.replaceNumber(array, in);
 				System.out.println("Done.");
 			}
 			
-			else if(menuSelection == 12){
+			else if(menuSelection == 12){//max sum of ten consecutive
 				System.out.println("The greatest sum of ten consecutive numbers is: " + CustomArrayMethods.findGreatestTenSum(array));
 			}
 		}

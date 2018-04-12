@@ -8,7 +8,7 @@ public class CustomArrayMethods
 	
 	public static void populateRandomly(int[] array, int max)
 	{
-		for(int i = 0; i < 100; i++)
+		for(int i = 0; i < array.length; i++)
 		{
 			array[i] = Utility.random(0, max);
 		}
@@ -16,15 +16,18 @@ public class CustomArrayMethods
 	
 	public static void populateAscending(int[] array)
 	{
-		for(int i = 0; i < 100; i++){
+		for(int i = 0; i < array.length; i++)
+		{
 			array[i] = i+1;
 		}
 	}
 	
 	public static void printArray(int[] array)
 	{
-		for(int i = 0; i < 10; i++){
-			for(int j = 0; j < 10; j++){
+		for(int i = 0; i < 10; i++)
+		{
+			for(int j = 0; j < 10; j++)
+			{
 				if(String.valueOf(array[10*i+j]).length() == 3)
 					System.out.print(array[10*i+j] + " ");
 				else if (String.valueOf(array[10*i+j]).length() == 2)
@@ -39,7 +42,7 @@ public class CustomArrayMethods
 	public static void shuffle(int[] array)
 	{
 		int replace, replacer;
-		for(int i = 0; i < 100; i++)
+		for(int i = 0; i < array.length; i++)
 		{
 			replacer = array[i];
 			replace = Utility.random(0, 99);
@@ -51,13 +54,16 @@ public class CustomArrayMethods
 	public static void lookForNumber(int[] array, Scanner in)
 	{
 		System.out.println("What number are you looking for?");
-		int test = Utility.checkError(0, 2147483647, in);
-		for(int i = 0; i < 100; i++){
-			if(array[i] == test){
+		int test = Utility.checkError(0, in);
+		for(int i = 0; i < 100; i++)
+		{
+			if(array[i] == test)
+			{
 				System.out.println(i+1);
 				break;
 			}
-			else if(i == 99){
+			else if(i == 99)
+			{
 				System.out.println("-1");
 			}
 		}
@@ -120,7 +126,7 @@ public class CustomArrayMethods
 		System.out.println("What integer would you like to find");
 		int test = Utility.checkError(0, in);
 		int instances = 0;
-		for(int i = 0; i < 100; i++){
+		for(int i = 0; i < array.length; i++){
 			if(test == array[i]){
 				instances ++;
 			}
@@ -131,11 +137,28 @@ public class CustomArrayMethods
 	public static int findGreatestTenSum(int[] array)
 	{
 		int test = array[0] + array[1] + array[2] + array[3] + array[4] + array[5] + array[6] + array[7] + array[8] + array[9];
-		for(int i = 0; i < 90; i++){
-			if(test < array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9]){
+		for(int i = 0; i < 90; i++)
+		{
+			if(test < array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9])
+			{
 				test = array[i] + array[i+1] + array[i+2] + array[i+3] + array[i+4] + array[i+5] + array[i+6] + array[i+7] + array[i+8] + array[i+9];
 			}
 		}
 		return test;
+	}
+	
+	public static void replaceNumber(int[] array, Scanner in)
+	{
+		System.out.println("Please enter the number you want replaced");
+		int replaced = Utility.checkError(0, in);
+		System.out.println("Please enter the number you want replacing it");
+		int replacer = Utility.checkError(0, in);
+		for(int i = 0; i < array.length; i++)
+		{
+			if(array[i] == replaced)
+			{
+				array[i] = replacer;
+			}
+		}
 	}
 }
